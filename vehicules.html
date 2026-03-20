@@ -2,27 +2,79 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/logo/cussondubureaudushrifdeBlaine.png">
+  <style>
+:root {
+  --bg: #05080f;
+  --bg2: #05080f;
+  --surface: #0c1220;
+  --surface2: #101a2e;
+  --surface3: #152038;
+  --panel: #0c1220;
+  --panel2: #101a2e;
+  --panel3: #152038;
+  --border: #1b3a5e;
+  --line: #1b3a5e;
+  --line2: #1b3a5e;
+  --border2: #1b3a5e;
+  --accent: #155e2a;
+  --accent-b: #22a050;
+  --accent-l: #22a050;
+  --accent-glow: rgba(26,160,80,.22);
+  --accent-dim: rgba(26,160,80,.12);
+  --green-acc: #155e2a;
+  --blue-b: #22a050;
+  --blue-l: #22a050;
+  --blue-dim: rgba(26,160,80,.12);
+  --gold: #1a7a3a;
+  --gold-l: #1a7a3a;
+  --gold-dim: rgba(201,170,77,.15);
+  --text: #dce8f4;
+  --text2: #445e7a;
+  --text3: #2d4260;
+  --muted: #445e7a;
+  --danger: #c0392b;
+  --danger-l: #e74c3c;
+  --red: #c0392b;
+  --red-l: #e74c3c;
+  --red-dim: rgba(192,57,43,.12);
+  --success: #1e9e56;
+  --green: #1e9e56;
+  --green-l: #1e9e56;
+  --green-dim: rgba(30,158,86,.12);
+  --warning: #d68910;
+  --amber: #d68910;
+  --amber-l: #d68910;
+  --amber-dim: rgba(214,137,16,.12);
+  --purple: #7d3c98;
+  --purple-l: #bf7df0;
+  --mono: 'Share Tech Mono', monospace;
+  --sans: 'Rajdhani', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);font-size:13px;line-height:1.5;}
+</style>
+  <link rel="icon" type="image/png" href="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/bcsonouveau.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BCSO — Véhicules</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=14">
   <style>
     .veh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
-    .veh-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .2s;animation:fadeIn .3s ease both;}
+    .veh-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:all .2s;animation:fadeIn .3s ease both;}
     .veh-card::before{content:'';display:block;height:3px;}
-    .veh-card.dispo::before{background:var(--success);}
-    .veh-card.service::before{background:var(--accent-b);}
-    .veh-card.maint::before{background:var(--warning);}
-    .veh-card.hors::before{background:var(--danger);}
-    .veh-card:hover{border-color:var(--accent);box-shadow:0 0 16px var(--accent-glow);transform:translateY(-2px);}
+    .veh-card.dispo::before{background:var(--green);}
+    .veh-card.service::before{background:var(--blue-b);}
+    .veh-card.maint::before{background:var(--amber-l);}
+    .veh-card.hors::before{background:var(--red);}
+    .veh-card:hover{border-color:var(--accent);box-shadow:0 0 16px rgba(34,197,94,.15);transform:translateY(-2px);}
     .veh-icon{font-size:48px;text-align:center;padding:18px 0 8px;}
-    .veh-plaque{font-family:'Orbitron',monospace;font-size:15px;font-weight:700;letter-spacing:3px;text-align:center;margin-bottom:4px;}
-    .veh-modele{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--muted);text-align:center;margin-bottom:12px;letter-spacing:1px;}
+    .veh-plaque{font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:700;letter-spacing:3px;text-align:center;margin-bottom:4px;}
+    .veh-modele{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text2);text-align:center;margin-bottom:12px;letter-spacing:1px;}
     .veh-row{display:flex;justify-content:space-between;margin-bottom:6px;font-size:12px;padding-bottom:6px;border-bottom:1px solid rgba(27,58,94,.3);}
     .veh-row:last-child{border-bottom:none;}
-    .veh-lbl{color:var(--muted);font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:1px;}
+    .veh-lbl{color:var(--text2);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;}
     .veh-body{padding:0 16px 14px;}
-    .veh-actions{display:flex;gap:6px;padding:10px 16px;border-top:1px solid var(--border);}
+    .veh-actions{display:flex;gap:6px;padding:10px 16px;border-top:1px solid var(--line);}
     .veh-actions button{flex:1;}
     @keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
   </style>
@@ -31,33 +83,37 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="BCSO">
-  <meta name="theme-color" content="#1a5c2a">
-  <link rel="apple-touch-icon" href="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/logo/cussondubureaudushrifdeBlaine.png">
+  <meta name="theme-color" content="#16a34a">
+  <link rel="apple-touch-icon" href="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/bcsonouveau.png">
 </head>
 <body>
 <div class="app-shell">
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
-  <div class="topbar">
-    <div class="tb-left">
-      <button class="tb-menu-btn" onclick="toggleSidebar()">☰</button>
-      <img class="tb-logo" src="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/logo/cussondubureaudushrifdeBlaine.png" alt="BCSO" onerror="this.style.display='none'">
-      <div class="tb-sep" style="width:1px;height:26px;background:var(--border)"></div>
+<div class="topbar">
+  <div class="tb-left">
+    <button class="tb-menu-btn" onclick="toggleSidebar()">☰</button>
+    <div class="tb-brand">
+      <div class="tb-shield"></div>
+      <img class="tb-logo" src="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/bcsonouveau.png" alt="BCSO" onerror="this.style.display='none'">
       <div class="tb-title">B.C.S.O</div>
-      <div class="tb-sep" style="width:1px;height:26px;background:var(--border)"></div>
-      <div class="tb-page">PARC AUTOMOBILE</div>
     </div>
-    <div class="tb-right">
-      <div class="tb-time" id="tbClock">--:--:--</div>
+    <div class="tb-page">Véhicules</div>
+  </div>
+  <div class="tb-right">
+    <div class="tb-status"><div class="live-dot"></div>En ligne</div>
+    <div class="tb-time" id="tbClock">--:--:--</div>
+    <div class="tb-user">
       <span class="tb-grade" id="tbGrade">—</span>
       <span class="tb-name" id="tbName">Officier</span>
-      <button class="btn-out" onclick="logout()">Déconnexion</button>
     </div>
+    <button class="btn-out" onclick="logout()">Quitter</button>
   </div>
-  <div class="shell">
+</div>
+<div class="shell">
     <div class="sidebar" id="sidebar"></div>
     <div class="main">
       <div class="page-head">
-        <div class="page-head-left"><h2>PARC AUTOMOBILE</h2><p>// VÉHICULES DE SERVICE — BLAINE COUNTY SHERIFF OFFICE</p></div>
+        <div class="page-head-left"><h2>PARC AUTOMOBILE</h2><p>// VÉHICULES DE SERVICE — LOS SANTOS POLICE DEPARTMENT</p></div>
         <div style="display:flex;gap:8px">
           <button class="btn btn-ghost btn-sm" onclick="window.print()">📋 Imprimer liste</button>
           <button class="btn btn-primary" id="btnNew" style="display:none">+ Ajouter véhicule</button>
@@ -136,22 +192,21 @@
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-  import { getFirestore, collection, addDoc, getDocs, where, doc, updateDoc, deleteDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-  import { initPage, startClock, showToast, openModal, closeModal, setupModalClose, statusBadge, addLog, getPerms, DEPT } from './utils.js';
+  import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+  import { initPage, startClock, showToast, openModal, closeModal, setupModalClose, statusBadge, addLog, getPerms } from './utils.js?v=3';
 
   const firebaseConfig = {
-    apiKey: "AIzaSyA4GxYd32GNs5EDjjm2UI1a0d25YxigMVU",
-    authDomain: "lspd-intranet-2aed9.firebaseapp.com",
-    projectId: "lspd-intranet-2aed9",
-    storageBucket: "lspd-intranet-2aed9.firebasestorage.app",
-    messagingSenderId: "780922925382",
-    appId: "1:780922925382:web:a32d5e89bcff75bd8b3547"
+    apiKey: "VOTRE_BCSO_API_KEY",
+    authDomain: "bcso-intranet-2aed9.firebaseapp.com",
+    projectId: "bcso-intranet-2aed9",
+    storageBucket: "bcso-intranet-2aed9.firebasestorage.app",
+    messagingSenderId: "VOTRE_SENDER_ID",
+    appId: "1:VOTRE_SENDER_ID:web:a32d5e89bcff75bd8b3547"
   };
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db = getFirestore(app);
-
   let allVehicules = [], editingId = null, userPerms = {};
 
   const TYPE_ICONS = {'Patrouille':'🚓','SWAT':'🚐','Banalisé':'🚗','Moto':'🏍','Hélicoptère':'🚁','Bateau':'🚤','Fourgon':'🚐'};
@@ -173,7 +228,7 @@
 
   async function loadVehicules() {
     try {
-      const snap = await getDocs(query(collection(db,'vehicules'), where('dept','==',DEPT), orderBy('plaque')));
+      const snap = await getDocs(query(collection(db,'vehicules'), orderBy('plaque')));
       allVehicules = snap.docs.map(d => ({id:d.id,...d.data()}));
       document.getElementById('sTotal').textContent = allVehicules.length;
       document.getElementById('sDispo').textContent = allVehicules.filter(v=>v.statut==='Disponible').length;
@@ -197,14 +252,14 @@
           <div class="veh-row"><span class="veh-lbl">TYPE</span><span style="font-size:12px">${v.type||'—'}</span></div>
           <div class="veh-row"><span class="veh-lbl">STATUT</span>${statusBadge(v.statut)}</div>
           <div class="veh-row"><span class="veh-lbl">ASSIGNÉ</span><span style="font-size:12px">${v.assigne||'—'}</span></div>
-          ${v.notes?`<div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--muted);margin-top:6px">${v.notes}</div>`:''}
+          ${v.notes?`<div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text2);margin-top:6px">${v.notes}</div>`:''}
         </div>
         <div class="veh-actions">
           ${userPerms.canWrite && userPerms.canManageVehicles ? `
             <button class="btn btn-ghost btn-sm" onclick="changeStatut('${v.id}')">🔄 Statut</button>
             <button class="btn btn-ghost btn-sm" onclick="editVehicule('${v.id}')">✏️</button>
             <button class="btn btn-danger btn-sm" onclick="deleteVehicule('${v.id}')">🗑️</button>
-          ` : `<div style="flex:1;text-align:center;font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--muted)">LECTURE SEULE</div>`}
+          ` : `<div style="flex:1;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text2)">LECTURE SEULE</div>`}
         </div>
       </div>`).join('');
   }
@@ -215,11 +270,11 @@
     tb.innerHTML = list.map(v => `
       <tr>
         <td style="font-size:20px">${TYPE_ICONS[v.type]||'🚗'}</td>
-        <td style="font-family:'Orbitron',monospace;font-size:13px;font-weight:700;letter-spacing:2px">${v.plaque||'—'}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;letter-spacing:2px">${v.plaque||'—'}</td>
         <td style="font-size:12px">${v.modele||'—'}${v.annee?' · '+v.annee:''}</td>
         <td style="font-size:12px">${v.assigne||'—'}</td>
         <td>${statusBadge(v.statut)}</td>
-        <td style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--muted)">${v.notes||'—'}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text2)">${v.notes||'—'}</td>
         <td style="display:flex;gap:4px">
           ${userPerms.canWrite && userPerms.canManageVehicles ? `
             <button class="btn btn-ghost btn-sm" onclick="changeStatut('${v.id}')" title="Changer statut">🔄</button>
@@ -285,7 +340,6 @@
     const plaque = document.getElementById('vPlaque').value.trim().toUpperCase();
     if (!plaque) { showToast('La plaque est obligatoire','error'); return; }
     const payload = {
-      dept: DEPT,
       plaque, modele: document.getElementById('vModele').value,
       type: document.getElementById('vType').value,
       statut: document.getElementById('vStatut').value,

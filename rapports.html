@@ -2,44 +2,100 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/logo/cussondubureaudushrifdeBlaine.png">
+  <style>
+:root {
+  --bg: #05080f;
+  --bg2: #05080f;
+  --surface: #0c1220;
+  --surface2: #101a2e;
+  --surface3: #152038;
+  --panel: #0c1220;
+  --panel2: #101a2e;
+  --panel3: #152038;
+  --border: #1b3a5e;
+  --line: #1b3a5e;
+  --line2: #1b3a5e;
+  --border2: #1b3a5e;
+  --accent: #155e2a;
+  --accent-b: #22a050;
+  --accent-l: #22a050;
+  --accent-glow: rgba(26,160,80,.22);
+  --accent-dim: rgba(26,160,80,.12);
+  --green-acc: #155e2a;
+  --blue-b: #22a050;
+  --blue-l: #22a050;
+  --blue-dim: rgba(26,160,80,.12);
+  --gold: #1a7a3a;
+  --gold-l: #1a7a3a;
+  --gold-dim: rgba(201,170,77,.15);
+  --text: #dce8f4;
+  --text2: #445e7a;
+  --text3: #2d4260;
+  --muted: #445e7a;
+  --danger: #c0392b;
+  --danger-l: #e74c3c;
+  --red: #c0392b;
+  --red-l: #e74c3c;
+  --red-dim: rgba(192,57,43,.12);
+  --success: #1e9e56;
+  --green: #1e9e56;
+  --green-l: #1e9e56;
+  --green-dim: rgba(30,158,86,.12);
+  --warning: #d68910;
+  --amber: #d68910;
+  --amber-l: #d68910;
+  --amber-dim: rgba(214,137,16,.12);
+  --purple: #7d3c98;
+  --purple-l: #bf7df0;
+  --mono: 'Share Tech Mono', monospace;
+  --sans: 'Rajdhani', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);font-size:13px;line-height:1.5;}
+</style>
+  <link rel="icon" type="image/png" href="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/bcsonouveau.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BCSO — Rapports d'intervention</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=14">
   
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="BCSO">
-  <meta name="theme-color" content="#1a5c2a">
-  <link rel="apple-touch-icon" href="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/logo/cussondubureaudushrifdeBlaine.png">
+  <meta name="theme-color" content="#16a34a">
+  <link rel="apple-touch-icon" href="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/bcsonouveau.png">
 </head>
 <body>
 <div class="app-shell">
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
-  <div class="topbar">
-    <div class="tb-left">
-      <button class="tb-menu-btn" onclick="toggleSidebar()">☰</button>
-      <img class="tb-logo" src="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/logo/cussondubureaudushrifdeBlaine.png" alt="BCSO" onerror="this.style.display='none'">
-      <div class="tb-sep" style="width:1px;height:26px;background:var(--border)"></div>
+<div class="topbar">
+  <div class="tb-left">
+    <button class="tb-menu-btn" onclick="toggleSidebar()">☰</button>
+    <div class="tb-brand">
+      <div class="tb-shield"></div>
+      <img class="tb-logo" src="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/bcsonouveau.png" alt="BCSO" onerror="this.style.display='none'">
       <div class="tb-title">B.C.S.O</div>
-      <div class="tb-sep" style="width:1px;height:26px;background:var(--border)"></div>
-      <div class="tb-page">RAPPORTS</div>
     </div>
-    <div class="tb-right">
-      <div class="tb-time" id="tbClock">--:--:--</div>
+    <div class="tb-page">Rapports</div>
+  </div>
+  <div class="tb-right">
+    <div class="tb-status"><div class="live-dot"></div>En ligne</div>
+    <div class="tb-time" id="tbClock">--:--:--</div>
+    <div class="tb-user">
       <span class="tb-grade" id="tbGrade">—</span>
       <span class="tb-name" id="tbName">Officier</span>
-      <button class="btn-out" onclick="logout()">Déconnexion</button>
     </div>
+    <button class="btn-out" onclick="logout()">Quitter</button>
   </div>
-  <div class="shell">
+</div>
+<div class="shell">
     <div class="sidebar" id="sidebar"></div>
     <div class="main">
       <div class="page-head">
         <div class="page-head-left">
           <h2>RAPPORTS D'INTERVENTION</h2>
-          <p>// JOURNAUX OPÉRATIONNELS — BLAINE COUNTY SHERIFF OFFICE</p>
+          <p>// JOURNAUX OPÉRATIONNELS — LOS SANTOS POLICE DEPARTMENT</p>
         </div>
         <div style="display:flex;gap:8px">
           <button class="btn btn-ghost btn-sm" onclick="window.print()">📋 Imprimer liste liste</button>
@@ -75,7 +131,7 @@
           <div class="table-wrap">
             <table>
               <thead><tr><th>RÉFÉRENCE</th><th>TITRE</th><th>TYPE</th><th>OFFICIER</th><th>DATE</th><th>SUSPECTS</th><th>STATUT</th><th>ACTIONS</th></tr></thead>
-              <tbody id="rapportsTable"><tr><td colspan="8" style="text-align:center;padding:30px;color:var(--muted);font-family:'Share Tech Mono',monospace;font-size:11px">CHARGEMENT...</td></tr></tbody>
+              <tbody id="rapportsTable"><tr><td colspan="8" style="text-align:center;padding:30px;color:var(--text2);font-family:'IBM Plex Mono',monospace;font-size:11px">CHARGEMENT...</td></tr></tbody>
             </table>
           </div>
         </div>
@@ -152,23 +208,22 @@
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-  import { getFirestore, collection, addDoc, getDocs, where, doc, updateDoc, deleteDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-  import { initPage, startClock, showToast, openModal, closeModal, setupModalClose, statusBadge, addLog, generateRef, getPerms, captureModal, DEPT } from './utils.js';
+  import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+  import { initPage, startClock, showToast, openModal, closeModal, setupModalClose, statusBadge, addLog, generateRef, getPerms, captureModal } from './utils.js?v=3';
   import { printRapport } from './pdf-templates.js';
 
   const firebaseConfig = {
-    apiKey: "AIzaSyA4GxYd32GNs5EDjjm2UI1a0d25YxigMVU",
-    authDomain: "lspd-intranet-2aed9.firebaseapp.com",
-    projectId: "lspd-intranet-2aed9",
-    storageBucket: "lspd-intranet-2aed9.firebasestorage.app",
-    messagingSenderId: "780922925382",
-    appId: "1:780922925382:web:a32d5e89bcff75bd8b3547"
+    apiKey: "VOTRE_BCSO_API_KEY",
+    authDomain: "bcso-intranet-2aed9.firebaseapp.com",
+    projectId: "bcso-intranet-2aed9",
+    storageBucket: "bcso-intranet-2aed9.firebasestorage.app",
+    messagingSenderId: "VOTRE_SENDER_ID",
+    appId: "1:VOTRE_SENDER_ID:web:a32d5e89bcff75bd8b3547"
   };
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db = getFirestore(app);
-
   let allRapports = [];
   let editingId = null;
   let userGrade = 'recruit';
@@ -191,7 +246,7 @@
 
   async function loadRapports() {
     try {
-      const snap = await getDocs(query(collection(db,'rapports'), where('dept','==',DEPT), orderBy('createdAt','desc')));
+      const snap = await getDocs(query(collection(db,'rapports'), orderBy('createdAt','desc')));
       allRapports = snap.docs.map(d => ({id:d.id,...d.data()}));
       const now = new Date();
       const moisDebut = new Date(now.getFullYear(),now.getMonth(),1).toISOString();
@@ -209,12 +264,12 @@
     const perms = getPerms(userGrade);
     tb.innerHTML = list.map(r => `
       <tr>
-        <td style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--muted)">${r.reference||'—'}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text2)">${r.reference||'—'}</td>
         <td><strong>${r.titre||'—'}</strong></td>
         <td style="font-size:12px">${r.type||'—'}</td>
         <td style="font-size:12px">${r.officier||'—'}</td>
-        <td style="font-family:'Share Tech Mono',monospace;font-size:11px">${r.date||'—'} ${r.heure||''}</td>
-        <td style="font-size:12px;color:var(--muted)">${r.suspects||'—'}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:11px">${r.date||'—'} ${r.heure||''}</td>
+        <td style="font-size:12px;color:var(--text2)">${r.suspects||'—'}</td>
         <td>${r.statut==='Ouvert'?'<span class="badge b-open">Ouvert</span>':'<span class="badge b-closed">Fermé</span>'}</td>
         <td style="display:flex;gap:4px;flex-wrap:wrap">
           <button class="btn btn-ghost btn-sm" onclick="viewRapport('${r.id}')">👁️</button>
@@ -268,7 +323,6 @@
     const titre = document.getElementById('rTitre').value.trim();
     if (!titre) { showToast('Le titre est obligatoire','error'); return; }
     const payload = {
-      dept: DEPT,
       reference: editingId ? (allRapports.find(r=>r.id===editingId)?.reference||generateRef('RPT')) : generateRef('RPT'),
       titre, type: document.getElementById('rType').value,
       officier: document.getElementById('rOfficier').value,
@@ -314,18 +368,18 @@
     document.getElementById('detailTitle').textContent = r.titre||'RAPPORT';
     document.getElementById('detailBody').innerHTML = `
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px">
-        <div><div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:3px">RÉFÉRENCE</div><div style="font-family:'Share Tech Mono',monospace;font-size:13px">${r.reference||'—'}</div></div>
-        <div><div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:3px">STATUT</div>${r.statut==='Ouvert'?'<span class="badge b-open">Ouvert</span>':'<span class="badge b-closed">Fermé</span>'}</div>
-        <div><div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:3px">TYPE</div><div style="font-size:13px">${r.type||'—'}</div></div>
-        <div><div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:3px">DATE / HEURE</div><div style="font-family:'Share Tech Mono',monospace;font-size:13px">${r.date||'—'} ${r.heure||''}</div></div>
-        <div><div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:3px">OFFICIER</div><div style="font-size:13px">${r.officier||'—'}</div></div>
-        <div><div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:3px">ÉQUIPE</div><div style="font-size:13px">${r.equipe||'—'}</div></div>
-        <div><div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:3px">LIEU</div><div style="font-size:13px">${r.lieu||'—'}</div></div>
-        <div><div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:3px">SUSPECTS</div><div style="font-size:13px;color:var(--danger-l)">${r.suspects||'—'}</div></div>
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text2);letter-spacing:2px;margin-bottom:3px">RÉFÉRENCE</div><div style="font-family:'IBM Plex Mono',monospace;font-size:13px">${r.reference||'—'}</div></div>
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text2);letter-spacing:2px;margin-bottom:3px">STATUT</div>${r.statut==='Ouvert'?'<span class="badge b-open">Ouvert</span>':'<span class="badge b-closed">Fermé</span>'}</div>
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text2);letter-spacing:2px;margin-bottom:3px">TYPE</div><div style="font-size:13px">${r.type||'—'}</div></div>
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text2);letter-spacing:2px;margin-bottom:3px">DATE / HEURE</div><div style="font-family:'IBM Plex Mono',monospace;font-size:13px">${r.date||'—'} ${r.heure||''}</div></div>
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text2);letter-spacing:2px;margin-bottom:3px">OFFICIER</div><div style="font-size:13px">${r.officier||'—'}</div></div>
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text2);letter-spacing:2px;margin-bottom:3px">ÉQUIPE</div><div style="font-size:13px">${r.equipe||'—'}</div></div>
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text2);letter-spacing:2px;margin-bottom:3px">LIEU</div><div style="font-size:13px">${r.lieu||'—'}</div></div>
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text2);letter-spacing:2px;margin-bottom:3px">SUSPECTS</div><div style="font-size:13px;color:var(--red-l)">${r.suspects||'—'}</div></div>
       </div>
-      ${r.resume?`<div style="margin-bottom:14px"><div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:6px">RÉSUMÉ</div><div style="font-size:13px;line-height:1.6;padding:12px;background:var(--surface2);border-radius:5px">${r.resume}</div></div>`:''}
-      ${r.description?`<div style="margin-bottom:14px"><div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:6px">DESCRIPTION COMPLÈTE</div><div style="font-size:13px;line-height:1.7;padding:12px;background:var(--surface2);border-radius:5px;white-space:pre-wrap">${r.description}</div></div>`:''}
-      ${r.conclusion?`<div><div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:6px">CONCLUSION</div><div style="font-size:13px;line-height:1.6;padding:12px;background:var(--surface2);border-radius:5px">${r.conclusion}</div></div>`:''}
+      ${r.resume?`<div style="margin-bottom:14px"><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text2);letter-spacing:2px;margin-bottom:6px">RÉSUMÉ</div><div style="font-size:13px;line-height:1.6;padding:12px;background:var(--panel2);border-radius:5px">${r.resume}</div></div>`:''}
+      ${r.description?`<div style="margin-bottom:14px"><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text2);letter-spacing:2px;margin-bottom:6px">DESCRIPTION COMPLÈTE</div><div style="font-size:13px;line-height:1.7;padding:12px;background:var(--panel2);border-radius:5px;white-space:pre-wrap">${r.description}</div></div>`:''}
+      ${r.conclusion?`<div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text2);letter-spacing:2px;margin-bottom:6px">CONCLUSION</div><div style="font-size:13px;line-height:1.6;padding:12px;background:var(--panel2);border-radius:5px">${r.conclusion}</div></div>`:''}
     `;
     const perms = getPerms(userGrade);
     document.getElementById('detailFooter').innerHTML = `
@@ -343,7 +397,7 @@
 window.printRapport = function(id) {
     const r = allRapports.find(x => x.id === id);
     if (!r) return;
-    printRapport(r, 'BCSO', 'https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/logo/cussondubureaudushrifdeBlaine.png');
+    printRapport(r, 'BCSO', 'https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/bcsonouveau.png');
   };
 
   window.logout = async function() {

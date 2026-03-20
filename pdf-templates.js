@@ -4,7 +4,7 @@
 
 function pdfHeader(dept, ref, logo) {
   const couleur = dept === 'BCSO' ? '#5c3a1e' : '#003087';
-  const sousTitre = dept === 'BCSO' ? 'BLAINE COUNTY SHERIFF OFFICE' : 'BLAINE COUNTY SHERIFF OFFICE';
+  const sousTitre = dept === 'BCSO' ? 'BLAINE COUNTY SHERIFF OFFICE' : 'LOS SANTOS POLICE DEPARTMENT';
   return `
     <div style="background:${couleur};color:#fff;padding:18px 28px;display:flex;justify-content:space-between;align-items:center">
       <div style="display:flex;align-items:center;gap:14px">
@@ -25,7 +25,7 @@ function pdfFooter(dept, ref) {
   return `
     <div style="background:#f5f5f5;border-top:1px solid #ddd;padding:10px 28px;display:flex;justify-content:space-between">
       <div style="font-size:9px;color:#666">Réf: ${ref} — ${dept} Intranet — Document officiel confidentiel</div>
-      <div style="font-size:9px;color:#666">${dept === 'BCSO' ? 'Blaine County Sheriff Office' : 'Blaine County Sheriff Office'} © ${new Date().getFullYear()}</div>
+      <div style="font-size:9px;color:#666">${dept === 'BCSO' ? 'Blaine County Sheriff Office' : 'Blaine County Sheriff's Office'} © ${new Date().getFullYear()}</div>
     </div>`;
 }
 
@@ -105,7 +105,6 @@ export function printCasier(c, dept = 'BCSO', logo = '', source = '') {
   ${pdfFooter(dept, ref)}
   </div></body></html>`);
   w.document.close();
-  setTimeout(() => w.print(), 600);
 }
 
 // ============================================================
@@ -148,7 +147,6 @@ export function printArrestation(a, dept = 'BCSO', logo = '', source = '') {
   ${pdfFooter(dept, ref)}
   </div></body></html>`);
   w.document.close();
-  setTimeout(() => w.print(), 600);
 }
 
 // ============================================================
@@ -185,7 +183,6 @@ export function printAmende(a, dept = 'BCSO', logo = '') {
   ${pdfFooter(dept, ref)}
   </div></body></html>`);
   w.document.close();
-  setTimeout(() => w.print(), 600);
 }
 
 // ============================================================
@@ -218,7 +215,6 @@ export function printRapport(r, dept = 'BCSO', logo = '') {
   ${pdfFooter(dept, ref)}
   </div></body></html>`);
   w.document.close();
-  setTimeout(() => w.print(), 600);
 }
 
 // ============================================================
@@ -258,5 +254,4 @@ export function printSaisie(s, dept = 'BCSO', logo = '') {
   ${pdfFooter(dept, ref)}
   </div></body></html>`);
   w.document.close();
-  setTimeout(() => w.print(), 600);
 }
