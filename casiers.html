@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/bcsonouveau.png">
+  <link rel="icon" type="image/png" href="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/logo/cussondubureaudushrifdeBlaine.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BCSO — Casiers Judiciaires</title>
   <link rel="stylesheet" href="style.css?v=14">
@@ -76,7 +76,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="BCSO">
   <meta name="theme-color" content="#16a34a">
-  <link rel="apple-touch-icon" href="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/bcsonouveau.png">
+  <link rel="apple-touch-icon" href="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/logo/cussondubureaudushrifdeBlaine.png">
 </head>
 <body>
 <div class="app-shell">
@@ -88,7 +88,7 @@
     <button class="tb-menu-btn" onclick="toggleSidebar()">☰</button>
     <div class="tb-brand">
       <div class="tb-shield"></div>
-      <img class="tb-logo" src="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/bcsonouveau.png" alt="BCSO" onerror="this.style.display='none'">
+      <img class="tb-logo" src="https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/logo/cussondubureaudushrifdeBlaine.png" alt="BCSO" onerror="this.style.display='none'">
       <div class="tb-title">B.C.S.O</div>
     </div>
     <div class="tb-page">Casiers judiciaires</div>
@@ -268,12 +268,12 @@
   import { printCasier } from './pdf-templates.js';
 
   const firebaseConfig = {
-    apiKey: "AIzaSyC_kfIx8Q5d6zha5NUFNpsbR5D02d5q1DA",
+    apiKey: "AIzaSyDTrqTkudkB4gM6tZlTDcDPTGk2gvi713Y",
     authDomain: "bcso-intranet-2aed9.firebaseapp.com",
     projectId: "bcso-intranet-2aed9",
     storageBucket: "bcso-intranet-2aed9.firebasestorage.app",
-    messagingSenderId: "788391241057",
-    appId: "1:788391241057:web:a32d5e89bcff75bd8b3547"
+    messagingSenderId: "251172788920",
+    appId: "1:251172788920:web:a32d5e89bcff75bd8b3547"
   };
 
   const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1483412457283256321/7joj4kDk2gpoBiDNbNWQwd3jBRLs1JvdhNCF0ThJzE40g6EFyCnc0bLkrPjC-xt_E9cM';
@@ -676,7 +676,7 @@
 window.printCasier = function(id) {
     const c = allCasiers.find(x => x.id === id);
     if (!c) return;
-    printCasier(c, 'BCSO', 'https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/bcsonouveau.png');
+    printCasier(c, 'BCSO', 'https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/logo/cussondubureaudushrifdeBlaine.png');
   };
 
   window.closeModalForm = function() {
@@ -687,7 +687,7 @@ window.printCasier = function(id) {
 window.printCasier = function(id) {
     const c = allCasiers.find(x => x.id === id);
     if (!c) return;
-    printCasier(c, 'BCSO', 'https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/bcsonouveau.png');
+    printCasier(c, 'BCSO', 'https://r2.fivemanage.com/XEcvh0aBGRYhLzNNcRsQI/logo/cussondubureaudushrifdeBlaine.png');
   };
   window.printAllCasiers = function() { window.print(); };
   window.logout = async function() {
