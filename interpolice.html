@@ -260,29 +260,18 @@ body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--tex
 
   import { printCasier } from './pdf-templates.js';
 
-  // ---- CONFIG BCSO (base principale) ----
+  // ---- CONFIG BCSO ----
   const bcsoConfig = {
     apiKey: "AIzaSyDTrqTkudkB4gM6tZlTDcDPTGk2gvi713Y",
     authDomain: "bcso-intranet-60c02.firebaseapp.com",
     projectId: "bcso-intranet-60c02",
     storageBucket: "bcso-intranet-60c02.firebasestorage.app",
     messagingSenderId: "251172788920",
-    appId: "1:251172788920:web:a32d5e89bcff75bd8b3547"
-  };
-
-  // ---- CONFIG BCSO (lecture des casiers) ----
-  const bcsoConfig = {
-    apiKey: "AIzaSyDTrqTkudkB4gM6tZlTDcDPTGk2gvi713Y",
-    authDomain: "bcso-intranet-60c02.firebaseapp.com",
-    projectId: "bcso-intranet-60c02",
-    storageBucket: "bcso-intranet-60c02.firebasestorage.app",
-    messagingSenderId: "251172788920",
-    appId: "1:251172788920:web:66e876f97ee32825f01120"
+    appId: "1:251172788920:web:262b6bbc703f8fa971b24d"
   };
 
   // App BCSO = app par défaut (sans nom) pour que l'auth fonctionne
   const bcsoApp = initializeApp(bcsoConfig);
-  const bcsoApp = initializeApp(bcsoConfig, 'bcso');
   const auth = getAuth(bcsoApp);
   const dbLspd = getFirestore(bcsoApp);
   const dbBcso = getFirestore(bcsoApp);
