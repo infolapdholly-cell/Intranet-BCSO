@@ -25,7 +25,7 @@ function pdfFooter(dept, ref) {
   return `
     <div style="background:#f5f5f5;border-top:1px solid #ddd;padding:10px 28px;display:flex;justify-content:space-between">
       <div style="font-size:9px;color:#666">Réf: ${ref} — ${dept} Intranet — Document officiel confidentiel</div>
-      <div style="font-size:9px;color:#666">${dept === 'BCSO' ? 'Blaine County Sheriff Office' : 'Blaine County Sheriff's Office'} © ${new Date().getFullYear()}</div>
+      <div style="font-size:9px;color:#666">${dept === 'BCSO' ? 'Blaine County Sheriff\'s Office' : 'Blaine County Sheriff\'s Office'} © ${new Date().getFullYear()}</div>
     </div>`;
 }
 
