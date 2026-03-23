@@ -294,17 +294,13 @@ body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--tex
   async function loadAll() {
     try {
       // Casiers BCSO
-      const bcsoSnap = await getDocs(collection(dbLspd, 'casiers'));
-      const bcsoCasiers = bcsoSnap.docs.map(d => ({...d.data(), dept:'BCSO', id:d.id}));
-
-      // Casiers BCSO
       let bcsoCasiers = [];
       try {
         const bcsoSnap = await getDocs(collection(dbBcso, 'casiers'));
         bcsoCasiers = bcsoSnap.docs.map(d => ({...d.data(), dept:'BCSO', id:d.id}));
       } catch(e) { console.warn('BCSO casiers failed:', e); }
 
-      allCasiers = [...bcsoCasiers, ...bcsoCasiers];
+      allCasiers = [...bcsoCasiers];
 
       document.getElementById('sCasiersLspd').textContent = bcsoCasiers.length;
       document.getElementById('sCasiersBcso').textContent = bcsoCasiers.length;
