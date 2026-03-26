@@ -260,7 +260,7 @@ body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--tex
 
   import { printCasier } from './pdf-templates.js';
 
-  // ---- CONFIG BCSO ----
+  // ---- CONFIG BCSO (base principale — auth) ----
   const bcsoConfig = {
     apiKey: "AIzaSyDTrqTkudkB4gM6tZlTDcDPTGk2gvi713Y",
     authDomain: "bcso-intranet-60c02.firebaseapp.com",
@@ -270,13 +270,24 @@ body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--tex
     appId: "1:251172788920:web:262b6bbc703f8fa971b24d"
   };
 
-  // App BCSO = app par défaut (sans nom) pour que l'auth fonctionne
+  // ---- CONFIG LSPD (lecture casiers LSPD) ----
+  const lspdConfig = {
+    apiKey: "AIzaSyA4GxYd32GNs5EDjjm2UI1a0d25YxigMVU",
+    authDomain: "lspd-intranet-2aed9.firebaseapp.com",
+    projectId: "lspd-intranet-2aed9",
+    storageBucket: "lspd-intranet-2aed9.firebasestorage.app",
+    messagingSenderId: "780922925382",
+    appId: "1:780922925382:web:a32d5e89bcff75bd8b3547"
+  };
+
+  // App BCSO = app par défaut (auth) — App LSPD = app secondaire (lecture seule)
   const bcsoApp = initializeApp(bcsoConfig);
-  const auth = getAuth(bcsoApp);
-  const dbLspd = getFirestore(bcsoApp);
+  const lspdApp = initializeApp(lspdConfig, 'lspd');
+  const auth   = getAuth(bcsoApp);
   const dbBcso = getFirestore(bcsoApp);
-  // Base interpolice = collection dans BCSO Firebase
-  const dbInter = dbLspd;
+  const dbLspd = getFirestore(lspdApp);
+  // Base interpolice = collections partagées dans BCSO Firebase
+  const dbInter = dbBcso;
 
   let allCasiers = [], userName = '', userDept = 'BCSO';
   startClock('tbClock');
